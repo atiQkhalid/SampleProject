@@ -2,6 +2,7 @@ package com.example.sampleprojectforreqruitment
 
 import android.app.Application
 import android.content.Context
+import com.example.sampleprojectforreqruitment.di.DIFramework
 
 /**
  * The App.kt, Application class
