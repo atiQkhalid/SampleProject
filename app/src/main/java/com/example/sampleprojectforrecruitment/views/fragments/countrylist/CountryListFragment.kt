@@ -1,4 +1,4 @@
-package com.example.sampleprojectforrecruitment.views.fragments
+package com.example.sampleprojectforrecruitment.views.fragments.countrylist
 
 import android.os.Bundle
 import android.text.Editable
@@ -18,7 +18,7 @@ import com.example.sampleprojectforrecruitment.extenssions.visible
 
 
 class CountryListFragment : BaseFragment(), CountryAdapter.OnCountryItemClickListener,
-CountryViewModel.View, View.OnClickListener{
+    CountryViewModel.View, View.OnClickListener{
 
     private lateinit var binding: FragmentHomeBinding
     private var countryAdapter: CountryAdapter? = null

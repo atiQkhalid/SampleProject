@@ -1,4 +1,4 @@
-package com.example.sampleprojectforrecruitment.views.fragments
+package com.example.sampleprojectforrecruitment.views.fragments.countrylist
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
