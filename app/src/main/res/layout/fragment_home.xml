@@ -12,40 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         app:cardCornerRadius="4dp"
+        android:visibility="gone"
         tools:ignore="MissingConstraints">
-
-        <RelativeLayout
-            android:id="@+id/layout_search"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorLightGray"
-            android:paddingStart="@dimen/dp10"
-            tools:ignore="RtlSymmetry">
-
-            <ImageView
-                android:id="@+id/ic_search"
-                android:layout_width="@dimen/dp50"
-                android:layout_height="@dimen/dp70"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_search" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_toRightOf="@id/ic_search"
-                android:text="@string/search"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp20"
-                android:textStyle="bold"
-                tools:ignore="RtlHardcoded"
-                android:gravity="center_vertical"/>
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/layout_editSearch"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imgBack"
