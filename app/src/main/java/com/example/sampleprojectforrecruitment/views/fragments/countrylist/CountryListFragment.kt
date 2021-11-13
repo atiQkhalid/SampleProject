@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
-import com.example.sampleprojectforrecruitment.R
+import androidx.recyclerview.widget.RecyclerView
 import com.example.sampleprojectforrecruitment.adapter.CountryAdapter
 import com.example.sampleprojectforrecruitment.base.BaseFragment
 import com.example.sampleprojectforrecruitment.databinding.FragmentHomeBinding
@@ -21,7 +21,7 @@ import com.example.sampleprojectforrecruitment.views.fragments.countrydetail.Cou
 
 
 class CountryListFragment : BaseFragment(), CountryAdapter.OnCountryItemClickListener,
-    CountryListViewModel.View, View.OnClickListener{
+    CountryListViewModel.View{
 
     private lateinit var binding: FragmentHomeBinding
     private var countryAdapter: CountryAdapter? = null
@@ -45,18 +45,13 @@ class CountryListFragment : BaseFragment(), CountryAdapter.OnCountryItemClickLis
         super.onViewCreated(view, savedInstanceState)
         countryAdapter = CountryAdapter(this)
 
-        binding.let{
-         it.etSearch.addTextChangedListener(object : TextWatcher {
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
              override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
              override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
              override fun afterTextChanged(s: Editable) {
                  countryListViewModel.onSearchContact(s.toString())
              }
          })
-
-         it.layoutSearch.setOnClickListener(this)
-         it.layoutEditSearch.setOnClickListener(this)
-        }
 
         countryListViewModel.let {
             it.attachView(this)
@@ -73,6 +68,17 @@ class CountryListFragment : BaseFragment(), CountryAdapter.OnCountryItemClickLis
             }
         }
 
+        binding.rvCountries.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy > 0) {
+                    //Scrolling down
+                    binding.searchCard.visible()
+                } else if (dy < 0) {
+                    //Scrolling up
+                    binding.searchCard.gone()
+                }
+            }
+        })
     }
 
     //once we get the data from repo, populate it with the help of the adapter, NewsAdapter()
@@ -107,20 +113,5 @@ class CountryListFragment : BaseFragment(), CountryAdapter.OnCountryItemClickLis
 
     override fun dismissProgressBar() {
         progressDialog.dismiss()
-    }
-
-    override fun onClick(v: View?) {
-        when(v?.id){
-            R.id.layout_search -> {
-                binding.layoutSearch.gone()
-                binding.layoutEditSearch.visible()
-            }
-
-            R.id.layout_editSearch -> {
-                binding.layoutSearch.visible()
-                binding.etSearch.text.clear()
-                binding.layoutEditSearch.gone()
-            }
-        }
     }
 }
