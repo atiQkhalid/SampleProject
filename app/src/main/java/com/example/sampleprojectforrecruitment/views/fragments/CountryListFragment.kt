@@ -8,7 +8,7 @@ import com.example.sampleprojectforrecruitment.base.BaseFragment
 import com.example.sampleprojectforrecruitment.databinding.FragmentHomeBinding
 
 
-class HomeFragment : BaseFragment() {
+class CountryListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentHomeBinding
 

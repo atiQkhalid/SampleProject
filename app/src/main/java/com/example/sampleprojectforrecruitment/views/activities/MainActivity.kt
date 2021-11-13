@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.sampleprojectforrecruitment.base.BaseActivity
 import com.example.sampleprojectforrecruitment.databinding.ActivityMainBinding
 import com.example.sampleprojectforrecruitment.extenssions.replaceFragmentSafely
-import com.example.sampleprojectforrecruitment.views.fragments.HomeFragment
+import com.example.sampleprojectforrecruitment.views.fragments.CountryListFragment
 
 class MainActivity : BaseActivity() {
 
@@ -16,7 +16,7 @@ class MainActivity : BaseActivity() {
             setContentView(it.root)
         }
 
-        replaceFragmentSafely(HomeFragment())
+        replaceFragmentSafely(CountryListFragment())
 
     }
 }
