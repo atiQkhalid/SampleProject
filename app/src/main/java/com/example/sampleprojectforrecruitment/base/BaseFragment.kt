@@ -1,9 +1,9 @@
-package com.example.sampleprojectforreqruitment.base
+package com.example.sampleprojectforrecruitment.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.sampleprojectforreqruitment.utils.DialogUtils
-import com.example.sampleprojectforreqruitment.views.activities.MainActivity
+import com.example.sampleprojectforrecruitment.utils.DialogUtils
+import com.example.sampleprojectforrecruitment.views.activities.MainActivity
 import com.kaopiz.kprogresshud.KProgressHUD
 
 abstract class BaseFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.sampleprojectforreqruitment.views.activities
+package com.example.sampleprojectforrecruitment.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

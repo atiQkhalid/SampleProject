@@ -1,7 +1,7 @@
-package com.example.sampleprojectforreqruitment.extenssions
+package com.example.sampleprojectforrecruitment.extenssions
 
 import android.widget.Toast
-import com.example.sampleprojectforreqruitment.App
+import com.example.sampleprojectforrecruitment.App
 
 /**
  * Extension function to show toast message

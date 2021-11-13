@@ -1,4 +1,4 @@
-package com.example.sampleprojectforreqruitment.extenssions
+package com.example.sampleprojectforrecruitment.extenssions
 
 import android.os.Bundle
 import android.view.View

@@ -1,7 +1,7 @@
-package com.example.sampleprojectforreqruitment.base
+package com.example.sampleprojectforrecruitment.base
 
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sampleprojectforreqruitment.utils.InternetMonitor
+import com.example.sampleprojectforrecruitment.utils.InternetMonitor
 
 abstract class BaseActivity : AppCompatActivity() {
 

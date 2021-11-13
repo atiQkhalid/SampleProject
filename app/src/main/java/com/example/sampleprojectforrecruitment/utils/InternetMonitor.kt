@@ -1,4 +1,4 @@
-package com.example.sampleprojectforreqruitment.utils
+package com.example.sampleprojectforrecruitment.utils
 
 import android.annotation.TargetApi
 import android.content.Context

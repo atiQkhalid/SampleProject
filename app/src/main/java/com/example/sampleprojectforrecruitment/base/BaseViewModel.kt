@@ -1,4 +1,4 @@
-package com.example.sampleprojectforreqruitment.base
+package com.example.sampleprojectforrecruitment.base
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel

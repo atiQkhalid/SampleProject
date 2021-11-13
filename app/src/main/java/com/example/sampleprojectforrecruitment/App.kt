@@ -1,8 +1,8 @@
-package com.example.sampleprojectforreqruitment
+package com.example.sampleprojectforrecruitment
 
 import android.app.Application
 import android.content.Context
-import com.example.sampleprojectforreqruitment.di.DIFramework
+import com.example.sampleprojectforrecruitment.di.DIFramework
 
 /**
  * The App.kt, Application class

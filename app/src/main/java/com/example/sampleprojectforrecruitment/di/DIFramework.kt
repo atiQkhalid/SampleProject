@@ -1,4 +1,4 @@
-package com.example.sampleprojectforreqruitment.di
+package com.example.sampleprojectforrecruitment.di
 
 import android.content.Context
 import org.koin.android.ext.koin.androidContext

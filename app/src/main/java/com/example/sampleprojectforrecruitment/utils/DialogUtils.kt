@@ -1,4 +1,4 @@
-package com.example.sampleprojectforreqruitment.utils
+package com.example.sampleprojectforrecruitment.utils
 
 import android.content.Context
 import com.kaopiz.kprogresshud.KProgressHUD
