@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.sampleprojectforrecruitment.base.BaseFragment
 import com.example.sampleprojectforrecruitment.databinding.FragmentHomeBinding
-import com.example.sampleprojectforrecruitment.extenssions.replaceFragmentInFragment
 
 
 class HomeFragment : BaseFragment() {
