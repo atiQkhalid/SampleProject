@@ -13,8 +13,9 @@ import java.util.*
 class CountryViewModel : BaseViewModel<CountryViewModel.View>(){
 
     val countryList = MutableLiveData<List<String>>()
-    private val _query = MutableLiveData<String>()
 
+    //  start search List
+    private val _query = MutableLiveData<String>()
     private val filteredData = Transformations.switchMap(_query) { filterable ->
         Transformations.map(countryList) { list ->
             if (filterable.isNotBlank()) {
@@ -36,6 +37,7 @@ class CountryViewModel : BaseViewModel<CountryViewModel.View>(){
             _query.value = query
         }
     }
+    //    end search List
 
     fun getCuriosityItemList() {
         getView().showProgressBar()
