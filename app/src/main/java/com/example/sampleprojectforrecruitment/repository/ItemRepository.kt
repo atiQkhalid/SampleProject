@@ -13,6 +13,10 @@ class ItemRepository : BaseRepository() {
             BASE_URL
         ).getAllCountries()
 
+    fun getCountryDetail() = RetrofitClient.getInterfaceService(
+        BASE_URL
+    ).getCountryDetail()
+
     companion object {
         private var instance: ItemRepository? = null
         fun getInstance(): ItemRepository {
