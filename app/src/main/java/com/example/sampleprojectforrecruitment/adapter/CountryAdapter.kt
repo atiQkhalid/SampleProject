@@ -1,4 +1,4 @@
-package com.example.sampleprojectforrecruitment.dapter
+package com.example.sampleprojectforrecruitment.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,13 +7,12 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sampleprojectforrecruitment.R
-import com.example.sampleprojectforrecruitment.models.response.CountryResponse
 
 class CountryAdapter(private  val onCountryItemClickListener: OnCountryItemClickListener) : RecyclerView.Adapter<CountryAdapter.MyViewHolder>() {
 
-    private val countryList: ArrayList<CountryResponse> = ArrayList()
+    private val countryList: ArrayList<String> = ArrayList()
 
-    fun setItems(list: List<CountryResponse>) {
+    fun setItems(list: List<String>) {
         countryList.clear()
         countryList.addAll(list)
         notifyDataSetChanged()
@@ -44,6 +43,6 @@ class CountryAdapter(private  val onCountryItemClickListener: OnCountryItemClick
     }
 
     interface OnCountryItemClickListener {
-        fun clickListener(country: CountryResponse)
+        fun clickListener(country: String)
     }
 }

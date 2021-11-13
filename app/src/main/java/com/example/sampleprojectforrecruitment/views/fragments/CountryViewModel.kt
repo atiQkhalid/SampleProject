@@ -9,9 +9,31 @@ import retrofit2.Response
 
 class CountryViewModel : BaseViewModel<CountryViewModel.View>(){
 
-    val countryItemList = MutableLiveData<List<CountryResponse>>()
+    val countryList = MutableLiveData<List<String>>()
 
-    fun getCountryItemList() {
+    fun getCuriosityItemList() {
+        getView().showProgressBar()
+        itemRepository.getCountryList()
+            .enqueue(object : Callback<CountryResponse> {
+                override fun onResponse(
+                    call: Call<CountryResponse>,
+                    response: Response<CountryResponse>
+                ) {
+                    getView().dismissProgressBar()
+                    response.run {
+                        if (isSuccessful) {
+                            body()?.response?.let {
+                                countryList.value = it
+                            } ?: getView().onUpdateResponse("Something went wrong")
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<CountryResponse>, t: Throwable) {
+                    getView().dismissProgressBar()
+                    getView().onUpdateResponse(t.message.toString())
+                }
+            })
     }
 
     interface View {

@@ -1,5 +1,7 @@
 package com.example.sampleprojectforrecruitment.network
 
+import com.example.sampleprojectforrecruitment.utils.Constants.API_KEY
+import com.example.sampleprojectforrecruitment.utils.Constants.HOST_KEY
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -40,8 +42,8 @@ object RetrofitClient {
         httpClient.addInterceptor { chain ->
             val original = chain.request()
             val requestBuilder = original.newBuilder()
-                .addHeader("Accept", "application/json")
-                .addHeader("Content-Type", "application/json")
+                .addHeader("x-rapidapi-host", HOST_KEY)
+                .addHeader("x-rapidapi-key", API_KEY)
 
             val request = requestBuilder.build()
             chain.proceed(request)
