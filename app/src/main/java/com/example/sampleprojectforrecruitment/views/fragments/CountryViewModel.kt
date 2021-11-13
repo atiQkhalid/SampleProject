@@ -1,15 +1,41 @@
 package com.example.sampleprojectforrecruitment.views.fragments
 
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import com.example.sampleprojectforrecruitment.base.BaseViewModel
 import com.example.sampleprojectforrecruitment.models.response.CountryResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class CountryViewModel : BaseViewModel<CountryViewModel.View>(){
 
     val countryList = MutableLiveData<List<String>>()
+    private val _query = MutableLiveData<String>()
+
+    private val filteredData = Transformations.switchMap(_query) { filterable ->
+        Transformations.map(countryList) { list ->
+            if (filterable.isNotBlank()) {
+                list.filter {
+                    it.toLowerCase(Locale.getDefault()).contains(filterable)
+                }
+            } else
+                list
+        }
+    }
+
+    val countryListData = MediatorLiveData<List<String>>().apply {
+        addSource(countryList) { value -> this.setValue(value) }
+        addSource(filteredData) { value -> this.setValue(value) }
+    }
+
+    fun onSearchContact(query: String) {
+        if (query.length >= QUERY_THRESHOLD || query.isEmpty()) {
+            _query.value = query
+        }
+    }
 
     fun getCuriosityItemList() {
         getView().showProgressBar()
@@ -34,6 +60,10 @@ class CountryViewModel : BaseViewModel<CountryViewModel.View>(){
                     getView().onUpdateResponse(t.message.toString())
                 }
             })
+    }
+
+    companion object {
+        const val QUERY_THRESHOLD = 2
     }
 
     interface View {

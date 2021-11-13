@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sample Project For Recruitment</string>
+    <string name="search">Search</string>
 </resources>
