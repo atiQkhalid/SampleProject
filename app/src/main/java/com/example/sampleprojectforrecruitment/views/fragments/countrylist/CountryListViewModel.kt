@@ -10,7 +10,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class CountryViewModel : BaseViewModel<CountryViewModel.View>(){
+class CountryListViewModel : BaseViewModel<CountryListViewModel.View>(){
 
     val countryList = MutableLiveData<List<String>>()
 
@@ -20,7 +20,7 @@ class CountryViewModel : BaseViewModel<CountryViewModel.View>(){
         Transformations.map(countryList) { list ->
             if (filterable.isNotBlank()) {
                 list.filter {
-                    it.toLowerCase(Locale.getDefault()).contains(filterable)
+                    it.lowercase(Locale.getDefault()).contains(filterable)
                 }
             } else
                 list
@@ -39,7 +39,7 @@ class CountryViewModel : BaseViewModel<CountryViewModel.View>(){
     }
     //    end search List
 
-    fun getCuriosityItemList() {
+    fun getCountryItemList() {
         getView().showProgressBar()
         itemRepository.getCountryList()
             .enqueue(object : Callback<CountryResponse> {
